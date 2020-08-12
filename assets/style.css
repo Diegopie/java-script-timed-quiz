@@ -1,0 +1,41 @@
+/* body {
+    background-color: black;
+} */
+
+
+header h1 {
+    padding-top: 12px;
+}
+
+.magenta {
+    background-color: #f02c90;
+    color: #1ef3ed;
+}
+
+.padding {
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 680px;
+    border: solid brown 2px;
+    text-align: center;
+}
+
+/* .content-header {
+} */
+
+
+
+.content-body {
+    padding-top: 5px;
+    border: solid brown 2px;
+    font-size: 22px;
+}
+
+.center-p {
+    text-align: center;
+}

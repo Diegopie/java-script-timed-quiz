@@ -1,6 +1,6 @@
-/* body {
+body {
     background-color: black;
-} */
+}
 
 
 header h1 {
@@ -15,7 +15,7 @@ header h1 {
 .padding {
     padding-top: 30px;
     padding-left: 20px;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 
 .content {
@@ -25,13 +25,8 @@ header h1 {
     text-align: center;
 }
 
-/* .content-header {
-} */
-
-
-
 .content-body {
-    padding-top: 5px;
+    padding-top: 8px;
     border: solid brown 2px;
     font-size: 22px;
 }

@@ -21,6 +21,7 @@ header h1 {
 .content {
     margin: 0 auto;
     max-width: 680px;
+    max-height: 440px;
     border: solid brown 2px;
     text-align: center;
 }
@@ -28,9 +29,15 @@ header h1 {
 .content-body {
     padding-top: 8px;
     border: solid brown 2px;
+    height: 350px;
     font-size: 22px;
 }
 
 .center-p {
     text-align: center;
+}
+
+
+li {
+    list-style-type: none;
 }

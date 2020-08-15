@@ -10,6 +10,7 @@ header h1 {
 .magenta {
     background-color: #f02c90;
     color: #1ef3ed;
+    border: solid #eb6d09 2px;
 }
 
 .padding {
@@ -22,22 +23,35 @@ header h1 {
     margin: 0 auto;
     max-width: 680px;
     max-height: 440px;
-    border: solid brown 2px;
     text-align: center;
+}
+
+
+.content-header {
+    padding-top: 16px;
 }
 
 .content-body {
     padding-top: 8px;
-    border: solid brown 2px;
     height: 350px;
     font-size: 22px;
 }
 
-.center-p {
-    text-align: center;
+#loadQuiz {
+    padding-top: 60px;
 }
-
 
 li {
     list-style-type: none;
+}
+
+.high-score {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+#btn {
+    border: solid 2px #eb6d09;
+    background-color: #1ef3ed;
+    color: #1ef3ed;
 }

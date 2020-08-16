@@ -3,7 +3,7 @@
     let score = 0;
     let timeLeft = 100;
     let gameRunning = true;
-    let timer;
+    let timerInterval;
     // ** Find Elements on Nav
         let scorePath = document.getElementById('score');
         let timerPath = document.getElementById('timer');
@@ -41,11 +41,28 @@
         ansA4: "foogahMashoo()",
     }
 
+    let questC = {
+        quest: "How Do You Trigger a Funciton to Run?",
+        ansA1: "())",
+        ansA2: "{}",
+        ansA3: "Go go go",
+        ansA4: "FUNTIONNNN ACTIVATE!!!",
+    }
+
+    let questD = {
+        quest: "How do you spell JavaScript",
+        ansA1: "jvaS",
+        ansA2: "jQuery",
+        ansA3: "jaaaaavascript",
+        ansA4: "JavaScript",
+    }
+
+
 // * Create Functions
 
     // ** Begin Timer and End Game at 0
         function beginTimer() {
-            let timerInterval = setInterval(function() {
+            timerInterval = setInterval(function() {
                 timeLeft--;
                 // Update HTML Element For User To See
                 timerPath.innerText = timeLeft;
@@ -76,6 +93,19 @@
                 ans03.innerText = questB.ansA3;
                 ans04.innerText = questB.ansA4;
             } else if (questCount === 2) {
+                questionsPath.innerText = questC.quest;
+                ans01.innerText = questC.ansA1;
+                ans02.innerText = questC.ansA2;
+                ans03.innerText = questC.ansA3;
+                ans04.innerText = questC.ansA4;
+                
+            } else if (questCount === 3) {
+                questionsPath.innerText = questD.quest;
+                ans01.innerText = questD.ansA1;
+                ans02.innerText = questD.ansA2;
+                ans03.innerText = questD.ansA3;
+                ans04.innerText = questD.ansA4;
+            } else if (questCount === 4) {
                 gameOver();
             }
         };
@@ -94,25 +124,45 @@
                 } else {
                     wrong();
                 }
+            } else if (questCount === 2) {
+                if (event.target.value === 1) {
+                    correct();
+                } else {
+                    wrong();
+                }
+            } else if (questCount === 3) {
+                if (event.target.value === 4) {
+                    correct();
+                } else {
+                    wrong();
+                }
             }
         }
 
     // ** When Game Ends, Display Message, text field, and Prompt High Score
         function gameOver () {
             allAns.style.display = "none";
+            
             questionsPath.innerHTML = "<img src='./assets/images/game-over.png'>Game Over";
+            clearInterval(timerInterval);
+           
 
-
-            // Display high score form
-            contentPath.style.display = "none";
-            textAreaPath.innerHTML = "<textarea class='form-control' rows='3' id='userInit' placeholder='Enter Your Initials and Click Submit to Save Your Score!'></textarea>"
-            btnPath.innerHTML = "<button type='button' class='btn btn-block'>Submit</button>"
             // Send remining time and score to key
-            localStorage.setItem("user-score", score);
-            localStorage.setItem("user-time", timeLeft);
-                // Get User Initials
+            let finalScore = score*timeLeft;
+            localStorage.setItem("user-score", finalScore);
 
-            timeLeft = 0;
+            
+          
+            // Display Score and Prompt Initials
+                // Update center-p With New Messge
+                pPlaceHoldPath.innerText = "Here is your final score!"
+                // Display Score
+                let dispScore = document.createElement('p')
+                dispScore.innerText = localStorage.getItem('user-score');
+                pPlaceHoldPath.appendChild(dispScore);
+                
+
+            
         }
 
     // ** Display When User Is Correct
@@ -154,25 +204,10 @@
     // ** Call answers() When User Selects an Possible Answer 
         allAns.addEventListener('click', answers);
        
-    // ** Logs User Initials to Local Storage
-        btnPath.addEventListener('click', function() {
-            btnPath.style.display = "none";
-            // Find and Store User Initals in Local Storage
-            let userInit = document.querySelector('#userInit');
-            localStorage.setItem('user-initials', userInit.value);
-            // Find #high-score <article>, Create and Append <btn>
-            let highScoPath = document.querySelector('.high-score');
-            let highLink = document.createElement('h3');
-            highLink.innerText = "Click Here to View High Scores and Try Again!";
-            highLink.setAttribute('class', 'high-score');
-                //Set anpotjer attribute to link to a highscores page
-            highScoPath.appendChild(highLink)
-            
-            console.dir(highScoPath);
-            console.log(highLink);
+    
 
            
-    });
+
 
 
         
